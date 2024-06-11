@@ -1,0 +1,81 @@
+{
+  "build": {
+    "beforeBuildCommand": "",
+    "beforeDevCommand": "",
+    "withGlobalTauri": false,
+    "devPath": "./public",
+    "distDir": "./public"
+  },
+  "package": {
+    "productName": "LTPP",
+    "version": "1.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": true
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "category": "Education",
+      "copyright": "LTPP",
+      "icon": [
+        "./public/icons/logo.png",
+        "./public/icons/logo.ico",
+        "./public/icons/logo.icns"
+      ],
+      "identifier": "LTPP-By-ShengQiangShi",
+      "longDescription": "LTPP",
+      "macOS": {
+        "entitlements": null,
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "shortDescription": "LTPP",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "webviewInstallMode": {
+          "type": "embedBootstrapper"
+        },
+        "wix": {
+          "language": "zh-CN"
+        }
+      }
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "decorations": false,
+        "maximized": true,
+        "minWidth": 1366,
+        "minHeight": 666,
+        "title": "LTPP",
+        "theme": "Dark",
+        "url": "https://ltpp.vip",
+        "transparent": true,
+        "visible": false,
+        "focus": true
+      },
+      {
+        "fullscreen": false,
+        "resizable": false,
+        "decorations": false,
+        "center": true,
+        "width": 666,
+        "height": 366,
+        "maximized": false,
+        "transparent": true,
+        "title": "Loading",
+        "theme": "Dark",
+        "url": "html/splashscreen.html",
+        "label": "splashscreen",
+        "focus": true
+      }
+    ]
+  }
+}

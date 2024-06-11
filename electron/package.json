@@ -1,0 +1,77 @@
+{
+    "name": "ltpp",
+    "version": "1.0.0",
+    "description": "Developer:root@ltpp.vip",
+    "main": "main.js",
+    "author": "root@ltpp.vip",
+    "scripts": {
+        "serve": "electron .",
+        "electron:generate-icons": "electron-icon-builder --input=./public/icon.png --output=build --flatten",
+        "build": "npx electron-builder"
+    },
+    "build": {
+        "productName": "LTPP",
+        "appId": "ltpp.vip",
+        "dmg": {
+            "title": "LTPP"
+        },
+        "copyright": "root@ltpp.vip",
+        "directories": {
+            "output": "out"
+        },
+        "win": {
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64",
+                        "arm64"
+                    ]
+                },
+                {
+                    "target": "portable",
+                    "arch": [
+                        "x64",
+                        "ia32"
+                    ]
+                }
+            ],
+            "icon": "./buildResources/LTPP.ico"
+        },
+        "mac": {
+            "icon": "./buildResources/LTPP.ico",
+            "target": "dmg"
+        },
+        "linux": {
+            "icon": "./buildResources/LTPP.ico",
+            "target": "AppImage"
+        }
+    },
+    "nsis": {
+        "oneClick": false,
+        "guid": "LTPP",
+        "perMachine": true,
+        "allowElevation": true,
+        "allowToChangeInstallationDirectory": true,
+        "installerIcon": "./buildResources/LTPP.ico",
+        "uninstallerIcon": "./buildResources/LTPP.ico",
+        "installerHeaderIcon": "./buildResources/LTPP.ico",
+        "createDesktopShortcut": true,
+        "createStartMenuShortcut": true,
+        "shortcutName": "LTPP"
+    },
+    "devDependencies": {
+        "@electron/osx-sign": "1.1.0",
+        "electron": "29.1.5",
+        "electron-builder": "24.13.3",
+        "electron-builder-squirrel-windows": "24.13.3",
+        "electron-icon-builder": "2.0.1"
+    },
+    "dependencies": {
+        "http-proxy": "1.18.1",
+        "http-server": "14.1.1",
+        "socketx": "1.1.0",
+        "ws": "8.8.1",
+        "yarn": "1.22.19"
+    }
+}
