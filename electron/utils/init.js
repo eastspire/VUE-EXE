@@ -7,7 +7,7 @@ const {
 
 const { app_name } = require('./config.js');
 const { addBridgeFunction } = require('./ipc.js');
-const { listenRequest } = require('./listen.js');
+const { listenRequest, listenScreenChange } = require('./listen.js');
 const { writeErrorLog } = require('./log.js');
 const { createWindow } = require('./window.js');
 const { creatTray } = require('./tray.js');
@@ -62,6 +62,8 @@ function run () {
     Menu.setApplicationMenu(null);
 
     app.whenReady().then(() => {
+        // 监听屏幕变化
+        listenScreenChange();
         listenRequest();
         addBridgeFunction();
         nativeTheme.themeSource = 'system';

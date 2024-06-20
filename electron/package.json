@@ -5,7 +5,8 @@
     "main": "main.js",
     "author": "root@ltpp.vip",
     "scripts": {
-        "serve": "cross-env NODE_ENV=LTPP-APP-DEV-NODE-ENV electron .",
+        "serve-web": "cd ../../LTPP-CODE/Frontend && npm run serve",
+        "serve-exe": "cross-env NODE_ENV=LTPP-APP-DEV-NODE-ENV electron .",
         "electron:generate-icons": "electron-icon-builder --input=./public/icon.png --output=build --flatten",
         "build": "npx electron-builder"
     },

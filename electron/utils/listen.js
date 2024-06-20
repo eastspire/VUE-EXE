@@ -1,4 +1,4 @@
-const { session, globalShortcut, BrowserWindow } = require('electron');
+const { session, globalShortcut, BrowserWindow, screen } = require('electron');
 const { writeInfoLog } = require('./log.js');
 
 /**
@@ -52,8 +52,25 @@ function removeListenKeydown () {
     globalShortcut.unregisterAll();
 }
 
+/**
+ * 监听屏幕变化
+ * 必须app.whenReady之后使用
+ */
+function listenScreenChange () {
+    // 监听显示器缩放变化
+    screen.on('display-metrics-changed', (event, display, changedMetrics) => {
+        // 获取所有窗口
+        const windows = BrowserWindow.getAllWindows();
+        // 更新所有窗口的大小和位置
+        windows.forEach((win) => {
+            win.maximize();
+        });
+    });
+}
+
 module.exports = {
     listenRequest,
     listenKeydown,
-    removeListenKeydown
+    removeListenKeydown,
+    listenScreenChange
 };
