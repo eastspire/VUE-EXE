@@ -2,6 +2,7 @@ const {
     app,
     BrowserWindow,
     nativeTheme,
+    Menu
 } = require('electron');
 
 const { app_name } = require('./config.js');
@@ -57,6 +58,8 @@ function run () {
     if (!gotTheLock) {
         app.quit();
     }
+    // 禁止默认菜单
+    Menu.setApplicationMenu(null);
 
     app.whenReady().then(() => {
         listenRequest();

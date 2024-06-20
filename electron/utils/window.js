@@ -6,6 +6,7 @@ const {
 } = require('electron');
 
 const {
+    is_dev,
     url_illegal_error_msg,
     splashscreen_path,
     web_preferences_config,
@@ -134,7 +135,9 @@ async function createWindow (url = app_url, param_new_window_config = {}, param_
     });
     // 资源加载放最后
     main_window.loadURL(url);
-    // main_window.webContents.openDevTools();
+    if (is_dev) {
+        main_window.webContents.openDevTools();
+    }
     return main_window;
 }
 

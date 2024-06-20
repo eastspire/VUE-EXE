@@ -1,5 +1,9 @@
 const path = require('path');
 const { nativeImage } = require('electron');
+
+// 是否是开发环境
+const is_dev = process.env.NODE_ENV === 'LTPP-APP-DEV-NODE-ENV';
+
 // app名称
 const app_name = 'LTPP在线开发平台';
 
@@ -10,7 +14,7 @@ const info_logs_file_dir = '/LTPP/logs/info/';
 const error_logs_file_dir = '/LTPP/logs/error/';
 
 // APP地址
-const app_url = 'https://ltpp.vip';
+const app_url = is_dev ? 'http://localhost:8080' : 'https://ltpp.vip';
 
 // 文档地址
 const docs_url = 'https://docs.ltpp.vip';
@@ -130,7 +134,7 @@ const language_map = {
 const web_preferences_config = {
     cache: true, // 启用页面缓存
     preload: preload_path,
-    devTools: false, // 控制台状态
+    devTools: is_dev ?? false, // 控制台状态
     allowRunningInsecureContent: true, // 允许使用透明度
     experimentalFeatures: false, // 实验功能
     webSecurity: true, // CSP 的安全限制
@@ -164,6 +168,7 @@ const loading_window_width = 582;
 const loading_window_height = 360;
 
 module.exports = {
+    is_dev,
     app_name,
     app_url,
     app_icon,

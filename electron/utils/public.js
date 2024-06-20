@@ -127,7 +127,7 @@ function judgeIsLTPPUrl (url = '') {
 function judgeIsStrictLTPPUrl (url = '') {
     try {
         const { hostname } = new URL(url);
-        return hostname === app_url_obj.hostname || hostname === `www.${app_url_obj.hostname}`
+        return hostname && (hostname === app_url_obj?.hostname || hostname === `www.${app_url_obj?.hostname}`);
     } catch (err) {
         console.log('judgeIsStrictLTPPUrl error:', err);
     }
@@ -200,5 +200,5 @@ module.exports = {
     isObject,
     isArray,
     sleep,
-    judgeIsValidUrl
+    judgeIsValidUrl,
 };
