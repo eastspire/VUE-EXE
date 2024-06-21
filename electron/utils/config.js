@@ -142,7 +142,8 @@ const web_preferences_config = {
     nodeIntegration: false, // Node.js 整合
     nodeIntegrationInWorker: false, // 是否在Web工作器中启用了Node集成
     nodeIntegrationInSubFrames: false, // 是否允许在子页面(iframe)或子窗口(child window)中集成Node.js
-    webviewTag: true, // WebView标签
+    webviewTag: true, // WebView标签   
+    contextIsolation: true, // 开启上下文隔离
 };
 
 // BrowserWindow配置

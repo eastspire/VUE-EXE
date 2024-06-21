@@ -1,40 +1,9 @@
 
-const {
-  contextBridge,
-  ipcRenderer,
-} = require('electron');
+const { contextBridge } = require('electron');
+const { bridge } = require('./utils/bridge.js');
 
-window.addEventListener('DOMContentLoaded', () => {
-  ipcRenderer.on('set-media-source', async (event, sourceId) => {
-    try {
-      console.log(1);
-      const stream = await navigator.mediaDevices.getUserMedia({
-        audio: false,
-        video: {
-          mandatory: {
-            chromeMediaSource: 'desktop',
-            chromeMediaSourceId: sourceId,
-            maxWidth: window.screen.width,
-            maxHeight: window.screen.height
-          }
-        }
-      });
-      handleStream(stream);
-    } catch (e) {
-      handleError(e);
-    }
-  });
-
-  function handleStream (stream) {
-    const video = document.querySelector('video');
-    video.srcObject = stream;
-    video.onloadedmetadata = (e) => video.play();
-  }
-
-  function handleError (e) {
-    console.log(e);
-  }
-});
+// 桥
+contextBridge.exposeInMainWorld('bridge', bridge);
 
 // All of the Node.js APIs are available in the preload process.
 // It has the same sandbox as a Chrome extension.
@@ -46,19 +15,4 @@ window.addEventListener('DOMContentLoaded', () => {
   for (const type of ['chrome', 'node', 'electron']) {
     replaceText(`${type}-version`, process.versions[type])
   }
-});
-
-// 桥
-contextBridge.exposeInMainWorld('bridge', {
-  send: function (name = '', data = {}) {
-    ipcRenderer.send(name, data);
-  },
-  on: function (name = '', func = () => { }) {
-    ipcRenderer.on(name, (event, ...args) => {
-      func(event, ...args);
-    });
-  },
-  sendNotification: function (data) {
-    ipcRenderer.send('send_notification', data);
-  },
 });
