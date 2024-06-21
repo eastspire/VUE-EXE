@@ -25,6 +25,9 @@ const ltpp_git_url = 'https://git.ltpp.vip';
 // LTPP-WEB-IDE地址
 const ltpp_web_ide_url = 'https://ide.ltpp.vip/?language=';
 
+// LTPP-QRCODE地址
+const ltpp_qrcode_url = 'https://qrcode.ltpp.vip';
+
 // APP URL对象
 const app_url_obj = new URL(app_url);
 
@@ -57,6 +60,9 @@ const restart_icon = nativeImage.createFromPath(path.join(__dirname, '../src/pho
 
 // LTPP-GIT图标
 const ltpp_git_icon = nativeImage.createFromPath(path.join(__dirname, '../src/photo/ltpp-git.png')).resize({ width: 22, height: 22 });
+
+// LTPP-QRCODE图标
+const ltpp_qrcode_icon = nativeImage.createFromPath(path.join(__dirname, '../src/photo/ltpp-qrcode.png')).resize({ width: 22, height: 22 });
 
 // 退出图标
 const exit_icon = nativeImage.createFromPath(path.join(__dirname, '../src/photo/exit.png')).resize({ width: 22, height: 22 });
@@ -175,6 +181,8 @@ module.exports = {
     app_icon,
     docs_url,
     logo_path,
+    ltpp_qrcode_url,
+    ltpp_qrcode_icon,
     exit_icon,
     docs_icon,
     maximize_icon,

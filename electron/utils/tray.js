@@ -16,6 +16,8 @@ const {
     web_ide_icon,
     docs_icon,
     online_icon,
+    ltpp_qrcode_url,
+    ltpp_qrcode_icon,
     maximize_icon,
     minimize_icon
 } = require('./config.js');
@@ -65,6 +67,16 @@ function creatTray (main_window) {
         {
             label: 'LTPP-GIT仓库', icon: ltpp_git_icon, click: () => {
                 createWindow(ltpp_git_url, {
+                    resizable: true,
+                    movable: true,
+                    frame: true,
+                    transparent: false,
+                }, {});
+            }
+        },
+        {
+            label: 'LTPP-QRCODE', icon: ltpp_qrcode_icon, click: () => {
+                createWindow(ltpp_qrcode_url, {
                     resizable: true,
                     movable: true,
                     frame: true,
