@@ -112,15 +112,11 @@ async function createWindow (url = app_url, param_new_window_config = {}, param_
     }
     main_window.on('focus', () => {
         // 获取焦点，注册监听
-        if (is_strict_ltpp_url) {
-            listenKeydown(main_window);
-        }
+        listenKeydown(main_window);
     });
     main_window.on('blur', () => {
         // 失去焦点，注销监听
-        if (is_strict_ltpp_url) {
-            removeListenKeydown();
-        }
+        removeListenKeydown();
     });
     // 资源准备就绪后展示
     main_window.once('ready-to-show', () => {
@@ -187,6 +183,14 @@ function creatChildWin (main_window) {
         const child_window = new BrowserWindow(child_window_config);
         child_window.id = window_id++;
         child_window.webContents.setFrameRate(240);
+        child_window.on('focus', () => {
+            // 获取焦点，注册监听
+            listenKeydown(main_window);
+        });
+        child_window.on('blur', () => {
+            // 失去焦点，注销监听
+            removeListenKeydown();
+        });
         child_window.loadURL(url);
         child_window.focus();
         creatChildWin(child_window);
