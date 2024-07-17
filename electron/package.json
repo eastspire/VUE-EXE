@@ -9,7 +9,9 @@
         "serve-exe-dev": "cross-env NODE_ENV=LTPP-APP-DEV-NODE-ENV electron .",
         "serve-exe-prod": "electron .",
         "electron:generate-icons": "electron-icon-builder --input=./public/icon.png --output=build --flatten",
-        "build": "npx electron-builder"
+        "build:win": "npx electron-builder --win",
+        "build:mac": "npx electron-builder --mac",
+        "build:linux": "npx electron-builder --linux"
     },
     "build": {
         "productName": "LTPP",

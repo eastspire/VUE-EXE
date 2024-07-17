@@ -1,35 +1,6 @@
-# electron-quick-start
-
-**Clone and run for a quick way to see Electron in action.**
-
-This is a minimal Electron application based on the [Quick Start Guide](https://electronjs.org/docs/latest/tutorial/quick-start) within the Electron documentation.
-
-A basic Electron application needs just these files:
-
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
-
-You can learn more about each of these components within the [Quick Start Guide](https://electronjs.org/docs/latest/tutorial/quick-start).
-
-## To Use
-
-To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+## BrowserWindow 配置
 
 ```bash
-# Clone this repository
-git clone https://github.com/electron/electron-quick-start
-# Go into the repository
-cd electron-quick-start
-# Install dependencies
-cnpm install
-# Run the app
-cnpm start
-打包
-cnpm start package
-
-在main.js 当中通过配置 BrowserWindow 来改变外观
-
 width Integer - 窗口宽度,单位像素. 默认是 800 .
 
 height Integer - 窗口高度,单位像素. 默认是 600 .
@@ -89,15 +60,18 @@ type String - 窗口type, 默认普通窗口. 下面查看更多. titleBarStyle 
 webPreferences Object - 设置界面特性. 下面查看更多.
 ```
 
-Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+## build 参数
 
-## Resources for Learning Electron
-
-- [electronjs.org/docs](https://electronjs.org/docs) - all of Electron's documentation
-- [electronjs.org/community#boilerplates](https://electronjs.org/community#boilerplates) - sample starter apps created by the community
-- [electron/electron-quick-start](https://github.com/electron/electron-quick-start) - a very basic starter Electron app
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
-
-## License
-
-[CC0 1.0 (Public Domain)](LICENSE.md)
+```shell
+--mac, -m, -o, --macos   Build for macOS,                             [array]
+--linux, -l             Build for Linux                               [array]
+--win, -w, --windows     Build for Windows                             [array]
+--x64                   Build for x64 (64 位安装包)                     [boolean]
+--ia32                   Build for ia32(32 位安装包)                     [boolean]
+--armv7l                 Build for armv7l                             [boolean]
+--arm64                 Build for arm64                               [boolean]
+--dir                   Build unpacked dir. Useful to test.           [boolean]
+--prepackaged, --pd     预打包应用程序的路径（以可分发的格式打包）
+--projectDir, --project 项目目录的路径。 默认为当前工作目录。
+--config, -c             配置文件路径，默认为`electron-builder.yml`（或`js`，或`js5`)
+```
