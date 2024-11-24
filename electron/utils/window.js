@@ -217,12 +217,12 @@ function creatChildWin(main_window) {
  */
 function showWindow(main_window) {
   try {
-    main_window?.show();
     main_window?.setAlwaysOnTop(true);
     setTimeout(() => {
       try {
         main_window?.setAlwaysOnTop(false);
         main_window?.focus();
+        main_window?.show();
       } catch (error) {}
     }, 0);
   } catch (error) {}

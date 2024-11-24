@@ -193,6 +193,9 @@ const web_preferences_config = {
   contextIsolation: true, // 开启上下文隔离
 };
 
+const loading_window_width = 582;
+const loading_window_height = 360;
+
 // BrowserWindow配置
 const new_window_config = {
   show: false,
@@ -201,8 +204,8 @@ const new_window_config = {
   autoHideMenuBar: true,
   maximize: false,
   darkTheme: true,
-  minHeight: 360,
-  minWidth: 600,
+  minHeight: loading_window_height,
+  minWidth: loading_window_width,
   center: true, // 自动居中
   frame: false, // 窗口边框
   alwaysOnTop: false, // 窗口始终在顶部显示
@@ -212,9 +215,6 @@ const new_window_config = {
   backgroundColor: 'transparent',
   webPreferences: {},
 };
-
-const loading_window_width = 582;
-const loading_window_height = 360;
 
 module.exports = {
   is_dev,
