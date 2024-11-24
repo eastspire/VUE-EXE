@@ -1,7 +1,8 @@
-**/node_modules
-**/out
-**/LTPP-cache
+**/node_modules/
+**/out/
+**/output/
+**/LTPP-cache/
 **.exe
-**/ltpp-arm64-cache
-**/ltpp-ia32-cache
-**/ltpp-x64-cache
+**/ltpp-arm64-cache/
+**/ltpp-ia32-cache/
+**/ltpp-x64-cache/
