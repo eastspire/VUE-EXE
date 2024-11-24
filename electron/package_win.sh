@@ -7,11 +7,9 @@ rm -rf ./ltpp-x64-cache
 rm -rf ./ltpp-ia32-cache
 rm -rf ./ltpp-arm64-cache
 rm -rf ./out
-rm -rf ./output
 echo "旧项目清空完成！"
 # win
 echo "构建win！"
 yarn run build:win
-mkdir -p ./output/win
-mv ./out/* ./output/win
-rm -rf ./out
+echo "Press Enter to continue..."
+read -n 1;
