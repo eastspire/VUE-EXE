@@ -203,6 +203,7 @@ const new_window_config = {
   darkTheme: true,
   minHeight: 360,
   minWidth: 600,
+  center: true, // 自动居中
   frame: false, // 窗口边框
   alwaysOnTop: false, // 窗口始终在顶部显示
   hasShadow: false, // 窗口阴影
