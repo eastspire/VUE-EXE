@@ -5,7 +5,7 @@ const { addBridgeFunction } = require('./ipc.js');
 const { listenRequest, listenScreenChange } = require('./listen.js');
 const { writeErrorLog } = require('./log.js');
 const { createWindow } = require('./window.js');
-const { creatTray } = require('./tray.js');
+const { createTray } = require('./tray.js');
 const { app_url } = require('./config.js');
 
 /**
@@ -33,7 +33,7 @@ function listenError() {
 function mainWindowInitRun() {
   return new Promise((resolve) => {
     createWindow(app_url).then((main_window) => {
-      creatTray(main_window);
+      createTray(main_window);
       resolve(main_window);
     });
   });

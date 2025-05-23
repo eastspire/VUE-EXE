@@ -24,7 +24,7 @@ const { createWindow, showWindow } = require('./window.js');
  * 创建系统托盘
  * @param {BrowserWindow} main_window
  */
-function creatTray(main_window) {
+function createTray(main_window) {
   tray = new Tray(logo_path);
   const web_ide_submenu = [];
   for (const key in language_map) {
@@ -74,22 +74,6 @@ function creatTray(main_window) {
       label: '代码编辑器',
       icon: web_ide_icon,
       submenu: web_ide_submenu,
-    },
-    {
-      label: 'LTPP-GIT仓库',
-      icon: ltpp_git_icon,
-      click: () => {
-        createWindow(
-          ltpp_git_url,
-          {
-            resizable: true,
-            movable: true,
-            frame: true,
-            transparent: false,
-          },
-          {}
-        );
-      },
     },
     {
       label: 'LTPP-QRCODE',
@@ -145,5 +129,5 @@ function creatTray(main_window) {
 }
 
 module.exports = {
-  creatTray,
+  createTray,
 };

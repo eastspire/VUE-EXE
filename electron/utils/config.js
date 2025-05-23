@@ -19,9 +19,6 @@ const app_url = is_dev ? 'http://localhost:8080' : 'https://ltpp.vip';
 // 文档地址
 const docs_url = 'https://docs.ltpp.vip';
 
-// LTPP-GIT地址
-const ltpp_git_url = 'https://git.ltpp.vip';
-
 // LTPP-WEB-IDE地址
 const ltpp_web_ide_url = 'https://ide.ltpp.vip/?language=';
 
@@ -68,11 +65,6 @@ const web_ide_icon = nativeImage
 // 重启图标
 const restart_icon = nativeImage
   .createFromPath(path.join(__dirname, '../src/photo/restart.png'))
-  .resize({ width: 22, height: 22 });
-
-// LTPP-GIT图标
-const ltpp_git_icon = nativeImage
-  .createFromPath(path.join(__dirname, '../src/photo/ltpp-git.png'))
   .resize({ width: 22, height: 22 });
 
 // LTPP-QRCODE图标
