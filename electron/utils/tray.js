@@ -5,8 +5,6 @@ const {
   logo_path,
   exit_icon,
   language_map,
-  ltpp_git_url,
-  ltpp_git_icon,
   ltpp_web_ide_url,
   restart_icon,
   web_ide_icon,

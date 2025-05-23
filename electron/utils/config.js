@@ -223,8 +223,6 @@ module.exports = {
   minimize_icon,
   app_url_obj,
   language_map,
-  ltpp_git_icon,
-  ltpp_git_url,
   web_ide_icon,
   online_icon,
   restart_icon,
